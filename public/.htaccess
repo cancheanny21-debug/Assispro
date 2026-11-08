@@ -1,0 +1,13 @@
+# AsistePro - Configuración Apache (carpeta public)
+# Enruta todas las peticiones a index.php si no corresponden a archivos reales
+
+RewriteEngine On
+RewriteBase /Assispro/public/
+
+# Si el archivo o directorio existe, servirlo directamente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todo lo demás a index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
