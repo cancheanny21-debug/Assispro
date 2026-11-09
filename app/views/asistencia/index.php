@@ -183,13 +183,13 @@ ob_start();
         </div>
 
         <div class="table-responsive">
-            <table class="table table-custom table-hover align-middle mb-0">
+            <table class="table table-custom table-hover align-middle mb-0 w-100">
                 <thead>
                     <tr>
-                        <th style="width: 50px;">#</th>
-                        <th>Estudiante</th>
-                        <th style="min-width: 380px;">Estado de Asistencia</th>
-                        <th style="min-width: 200px;">Observación</th>
+                        <th style="width: 48px;" class="text-center">#</th>
+                        <th style="width: 32%;">Estudiante</th>
+                        <th style="width: 42%;">Estado de Asistencia</th>
+                        <th style="width: 26%;">Observación</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -203,13 +203,13 @@ ob_start();
                     <?php else: ?>
                         <?php foreach ($estudiantes as $idx => $est): ?>
                         <tr>
-                            <td class="text-muted"><?= $idx + 1 ?></td>
+                            <td class="text-muted text-center fw-semibold"><?= $idx + 1 ?></td>
                             <td>
                                 <div class="fw-semibold text-dark"><?= e($est['nombre'] . ' ' . $est['apellido']) ?></div>
                                 <small class="text-muted"><?= e($est['email']) ?></small>
                             </td>
                             <td>
-                                <div class="btn-group attendance-group" role="group">
+                                <div class="btn-group attendance-group w-100" role="group">
                                     <input type="radio" class="btn-check" name="asistencia[<?= $est['estudiante_id'] ?>]" 
                                            id="p_<?= $est['estudiante_id'] ?>" value="presente" 
                                            <?= $est['estado'] === 'presente' ? 'checked' : '' ?>>
